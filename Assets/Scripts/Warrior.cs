@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class Warrior : MonoBehaviour
 {
-    
-    public enum MoveWay { left, right, stop, attack }
-    
-    public MoveWay moveDirection;
-    public float speed = 1;
 
-    public float HP = 100;
-    public float ATK = 25;
+    public enum MoveWay { left, right, stop }
+
+    public MoveWay moveDirection;
+    public bool isAttacking = false;
+
+
+    public float HP = 100;//체력
+    public float ATK = 25;//공격력
+    public float AttackTick = 1;//공격을 수행할 때 까지 기다려야 하는 시간
+    public float speed = 1;//이동 속도
 
 
     private GameObject attackTarget;
@@ -25,12 +28,14 @@ public class Warrior : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+        //방향 설정
         if (moveDirection == MoveWay.left)
         {
             spriteRenderer.flipX = true;
         }
         else { spriteRenderer.flipX = false; }
-        
+
     }
 
     // Update is called once per frame
@@ -41,31 +46,24 @@ public class Warrior : MonoBehaviour
 
     void Move()
     {
-        if (moveDirection==MoveWay.attack)
-        {
-
-            //공격 처리
-            return;
-        }
-
         if (moveDirection == MoveWay.stop)
         {
             return;
         }
 
-        if (moveDirection==MoveWay.right)
+        if (moveDirection == MoveWay.right)
         {
             transform.Translate(new Vector2(-speed * Time.deltaTime, 0));
 
         }
         else { transform.Translate(new Vector2(speed * Time.deltaTime, 0)); }
-        
+
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        //상대방이 적일 때
+        //상대방이 적일 때 (내 방향의 반대방향에서 오고 있을 떄
         if (other.gameObject.GetComponent<Warrior>().moveDirection != moveDirection)
         {
             attackTarget = other.gameObject;
@@ -83,25 +81,28 @@ public class Warrior : MonoBehaviour
     public void Attack()
     {
         //나 자신에 대한 코드
-        moveDirection = MoveWay.attack;
+        //가던 길을 멈추게 한다.
+        moveDirection = MoveWay.stop;
+        //공격을 시작한다.
+        isAttacking = true;
+        //공격 애니메이션 재생
         animator.SetBool("Attacking", true);
 
         //공격 대상에 대한 코드
         StartCoroutine("ApplyDemage");
-
-
     }
     IEnumerator ApplyDemage()
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
+            
+            yield return new WaitForSeconds(AttackTick);
             attackTargetInfo.HP -= ATK;
             if (attackTargetInfo.HP <= 0)
             {
                 attackTarget.SendMessage("Die");
-                break;
                 Debug.Log("죽어라!1");
+                break;
             }
         }
     }
@@ -110,9 +111,8 @@ public class Warrior : MonoBehaviour
     {
 
         animator.SetTrigger("Die");
-
         Destroy(gameObject);
 
     }
-    
+
 }
