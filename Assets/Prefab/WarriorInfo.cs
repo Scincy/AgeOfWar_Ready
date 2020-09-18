@@ -6,5 +6,7 @@ public class WarriorInfo : ScriptableObject
 {
     public float HP;
     public float ATK;
+    public float attackTick;
     public float speed;
+    public float spawnTick;
 }

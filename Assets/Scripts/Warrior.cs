@@ -19,7 +19,7 @@ public class Warrior : MonoBehaviour
     public float AttackTick = 1;//공격을 수행할 때 까지 기다려야 하는 시간
     public float speed = 1;//이동 속도
 
-
+    // 공격 상대에 대한 정보
     private GameObject attackTarget;
     private Warrior attackTargetInfo;
 
