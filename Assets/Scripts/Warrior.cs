@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// 게임에서 소환되는 전사의 기본 클래스 입니다.
+/// </summary>
 public class Warrior : MonoBehaviour
 {
 
     public enum MoveWay { left, right, stop }
-
+    [Header("Info")]
     public MoveWay moveDirection;
     public bool isAttacking = false;
-
-
+    [Space]
+    [Header("Stats")]
     public float HP = 100;//체력
     public float ATK = 25;//공격력
     public float AttackTick = 1;//공격을 수행할 때 까지 기다려야 하는 시간

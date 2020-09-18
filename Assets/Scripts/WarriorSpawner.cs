@@ -6,10 +6,10 @@ using UnityEngine.EventSystems;
 
 public class WarriorSpawner : MonoBehaviour
 {
-
-    
     public GameObject warriorPrefab;
     public Warrior.MoveWay spawnDirection;
+    public bool isAI = false;
+
     private GameObject warrior;
     //public float spawnTick=0.5f;
     // Start is called before the first frame update
@@ -30,9 +30,9 @@ public class WarriorSpawner : MonoBehaviour
 
     }
 
-    /*
+    
     IEnumerator Spawn()
     {
 
-    }*/
+    }
 }
