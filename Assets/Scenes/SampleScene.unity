@@ -498,9 +498,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc67073c07c4e04c81c48936367563b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  activated: 0
   offImage: {fileID: 21300000, guid: 489434c54dde2e14880f9ef048d8c9c2, type: 3}
   onImage: {fileID: 21300000, guid: 5834f2f0e498b83479b24667a163e85c, type: 3}
+  checker: {fileID: 203803724}
 --- !u!114 &203803724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,9 +932,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc67073c07c4e04c81c48936367563b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  activated: 0
   offImage: {fileID: 21300000, guid: 489434c54dde2e14880f9ef048d8c9c2, type: 3}
   onImage: {fileID: 21300000, guid: 5834f2f0e498b83479b24667a163e85c, type: 3}
+  checker: {fileID: 386976112}
 --- !u!114 &386976112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,8 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec73f35b7972d94eaec51337d1c2ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnProgressBar: {fileID: 0}
-  warriorPrefab: {fileID: 7907459718503015958, guid: 07e3f5e8a9ea2854ca55ac0db106ad22, type: 3}
+  warriorPrefab: []
   spawnDirection: 1
   isAI: 0
   spawnTick: 0
@@ -1471,8 +1472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec73f35b7972d94eaec51337d1c2ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnProgressBar: {fileID: 0}
-  warriorPrefab: {fileID: 7907459718503015958, guid: 07e3f5e8a9ea2854ca55ac0db106ad22, type: 3}
+  warriorPrefab: []
   spawnDirection: 0
   isAI: 0
   spawnTick: 0
@@ -1602,9 +1602,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc67073c07c4e04c81c48936367563b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  activated: 0
   offImage: {fileID: 21300000, guid: 489434c54dde2e14880f9ef048d8c9c2, type: 3}
   onImage: {fileID: 21300000, guid: 5834f2f0e498b83479b24667a163e85c, type: 3}
+  checker: {fileID: 856748027}
 --- !u!114 &856748027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,12 +1752,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1939432500}
   - {fileID: 1775005357}
   - {fileID: 1595023227}
   - {fileID: 1567710632}
   - {fileID: 1433948684}
   - {fileID: 1834732004}
-  - {fileID: 1939432500}
   m_Father: {fileID: 365988460}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2056,9 +2057,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc67073c07c4e04c81c48936367563b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  activated: 0
   offImage: {fileID: 21300000, guid: 489434c54dde2e14880f9ef048d8c9c2, type: 3}
   onImage: {fileID: 21300000, guid: 5834f2f0e498b83479b24667a163e85c, type: 3}
+  checker: {fileID: 1259658107}
 --- !u!114 &1259658107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2520,7 +2522,7 @@ RectTransform:
   m_Children:
   - {fileID: 1873895101}
   m_Father: {fileID: 959735960}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -2752,6 +2754,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d45bbe9c4bd5d4a8235244e78b7a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warriorInfos:
+  - {fileID: 11400000, guid: 38925a150e944a944b6a6d72ca1562a2, type: 2}
+  queueStateUI:
+  - {fileID: 386976111}
+  - {fileID: 1821073987}
+  - {fileID: 203803723}
+  - {fileID: 856748026}
+  - {fileID: 1259658106}
+  playerSpawner: {fileID: 848164474}
+  spawnID: 0
 --- !u!114 &1553347193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2822,7 +2834,7 @@ RectTransform:
   m_Children:
   - {fileID: 1343498141}
   m_Father: {fileID: 959735960}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -3024,7 +3036,7 @@ RectTransform:
   m_Children:
   - {fileID: 929027746}
   m_Father: {fileID: 959735960}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -3305,7 +3317,7 @@ RectTransform:
   m_Children:
   - {fileID: 1640581922}
   m_Father: {fileID: 959735960}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -3443,9 +3455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc67073c07c4e04c81c48936367563b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  activated: 0
   offImage: {fileID: 21300000, guid: 489434c54dde2e14880f9ef048d8c9c2, type: 3}
   onImage: {fileID: 21300000, guid: 5834f2f0e498b83479b24667a163e85c, type: 3}
+  checker: {fileID: 1821073988}
 --- !u!114 &1821073988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3598,7 +3611,7 @@ RectTransform:
   m_Children:
   - {fileID: 69026759}
   m_Father: {fileID: 959735960}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -3878,7 +3891,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 959735960}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}

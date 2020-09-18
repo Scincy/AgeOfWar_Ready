@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcbc58490e506f4db6c03607260500d, type: 3}
   m_Name: Bandit
   m_EditorClassIdentifier: 
-  HP: 0
-  ATK: 0
-  speed: 0
+  HP: 100
+  ATK: 25
+  attackTick: 0
+  speed: 1
+  spawnTick: 3
