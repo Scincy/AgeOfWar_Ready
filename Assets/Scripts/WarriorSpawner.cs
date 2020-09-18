@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class WarriorSpawner : MonoBehaviour
 {
     public Slider spawnProgressBar;
-    public GameObject warriorPrefab;
+    public GameObject[] warriorPrefab = new GameObject[1];
     public Warrior.MoveWay spawnDirection;
     public bool isAI = false;
     public float spawnTick;
@@ -23,8 +23,6 @@ public class WarriorSpawner : MonoBehaviour
     }
     void Start()
     {
-        warrior = Instantiate(warriorPrefab, transform.position, Quaternion.identity);
-        warrior.GetComponent<Warrior>().moveDirection = spawnDirection;
 
         if (!isAI)
         {
@@ -40,10 +38,9 @@ public class WarriorSpawner : MonoBehaviour
     }
 
     
-    IEnumerator Spawn()
+    public void Spawn(int id)
     {
-        yield return new WaitForSeconds(spawnTick);
-        warrior = Instantiate(warriorPrefab, transform.position, Quaternion.identity);
+        warrior = Instantiate(warriorPrefab[id], transform.position, Quaternion.identity);
         warriorInfo = warrior.GetComponent<Warrior>();
         warriorInfo.moveDirection = spawnDirection;
     }
@@ -65,7 +62,8 @@ public class WarriorSpawner : MonoBehaviour
             }
         }
         spawnProgressBar.value = 0;
-    }*/
+    }
+    */
     /*
     IEnumerator AISpawn()
     {

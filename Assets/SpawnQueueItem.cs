@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SpawnQueueItem : MonoBehaviour
 {
-    public bool enabled= false;
+    public bool activated= false;
     public Sprite offImage;//켜지면 바꾸게 할 이미지
     public Sprite onImage;//켜지면 바꾸게 할 이미지
 
@@ -34,7 +34,7 @@ public class SpawnQueueItem : MonoBehaviour
     {
         checker = GetComponent<Image>();
         //Debug purpose
-        if (enabled)
+        if (activated)
         {
             On();
         }
@@ -42,12 +42,12 @@ public class SpawnQueueItem : MonoBehaviour
 
     public void On()
     {
-        enabled = true;
+        activated = true;
         checker.sprite = onImage;
     }
     public void Off()
     {
-        enabled = false;
+        activated = false;
         checker.sprite = offImage;
     }
 
