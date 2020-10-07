@@ -9,4 +9,5 @@ public class WarriorInfo : ScriptableObject
     public float attackTick;
     public float speed;
     public float spawnTick;
+    public int id;
 }

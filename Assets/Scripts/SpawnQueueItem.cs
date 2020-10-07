@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SpawnQueueItem : MonoBehaviour
 {
     public bool activated= false;
-    public Sprite offImage;//켜지면 바꾸게 할 이미지
+    public Sprite offImage;// 꺼지면 바꾸게 할 이미지
     public Sprite onImage;//켜지면 바꾸게 할 이미지
 
     public Image checker;
