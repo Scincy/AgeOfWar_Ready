@@ -6,36 +6,34 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class WarriorSpawner : MonoBehaviour
-{
-    public GameObject[] warriorPrefab;
-    public WarriorInfo[] warriorinfo;
-    public Warrior.MoveWay spawnDirection;
-    //public bool isAI = false;
-    public float spawnTick;
-
-    
-    private GameObject warrior;
-    private Warrior warriorSetting;
-    //public float spawnTick=0.5f;
-    // Start is called before the first frame update
-
-        
+public class WarriorSpawner : Spawner
+{       
     void Start()
     {
-        /*
-        if (!isAI)
-        {
-            StartCoroutine("Spawn");
-        }*/
     }
 
-
-    
+    public override void SetCharactorInfo(int id)
+    {
+        
+        CharactorInfo target = warrior.GetComponent<CharactorInfo>();
+        target.ATK = warriorinfo[id].ATK + GameManager.instance.ATKupAmount * GameManager.instance.level;
+        target.HP = warriorinfo[id].HP + GameManager.instance.HPupAmount * GameManager.instance.level;
+        target.speed = warriorinfo[id].speed;
+        target.AttackTick = warriorinfo[id].attackTick;
+        target.AttackTick = warriorinfo[id].attackTick;
+        spawnTick = warriorinfo[id].spawnTick;
+        target.team = Team.left;
+        target.id = id;
+        target.level = GameManager.instance.level;
+        GameManager.instance.teamLeft.Add(warrior);
+    }
+    /*
     public void Spawn(int id)
     {
+        
+        
         Debug.Log(id+"was Spawned!");
-        warrior = Instantiate(warriorPrefab[id], transform.position, UnityEngine.Quaternion.identity);
+        
 
         //TODO
         //팀 정보를 삽입합니다.
@@ -47,13 +45,13 @@ public class WarriorSpawner : MonoBehaviour
         {
             GameManager.instance.teamRight.Add(warrior);
         }
-
+        
         warriorSetting = warrior.GetComponent<Warrior>();
         warriorSetting.moveDirection = spawnDirection;
         warriorSetting.HP = warriorinfo[id].HP;// + (GameManager.instance.level * GameManager.instance.HPupAmount);
         warriorSetting.ATK = warriorinfo[id].ATK;// + (GameManager.instance.level * GameManager.instance.ATKupAmount);
         warriorSetting.AttackTick = warriorinfo[id].attackTick;
-        warriorSetting.speed = warriorinfo[id].speed;
+        warriorSetting.speed = warriorinfo[id].speed
         // 워리어를 스폰 장소에 배치
         // 워리어 활성화
         // 활성화되면서 스탯 증가량 * level + (기본 스텟량 능력치) 부여
@@ -62,14 +60,15 @@ public class WarriorSpawner : MonoBehaviour
 
 
 
-        /*
+        
         warrior = Instantiate(warriorPrefab[id], transform.position, Quaternion.identity);
         
         warriorInfo = warrior.GetComponent<Warrior>();
         warriorInfo.moveDirection = spawnDirection;
-        */
+        
 
-    }
+    }*/
+
     /*
     IEnumerator AISpawn()
     {

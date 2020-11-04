@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [Header("Economic System")]
     public Text moneyText;
     public Text expText;
+    public Text levelText;
     // Start is called before the first frame updat
 
     // Update is called once per frame
@@ -15,6 +16,6 @@ public class UIManager : MonoBehaviour
     {
         moneyText.text = GameManager.instance.money.ToString();
         expText.text = GameManager.instance.exp.ToString();
-
+        levelText.text = "Level : "+GameManager.instance.level.ToString();
     }
 }

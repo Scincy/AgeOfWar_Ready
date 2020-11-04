@@ -8,13 +8,18 @@ public class GameManager : MonoBehaviour
     public int exp = 0;
     public int level = 1;
 
-    //TODO
     public float HPupAmount;
     public float ATKupAmount;
+    public int EXPupAmount;
     public List<GameObject> teamLeft;
     public List<GameObject> teamRight;
-    
-    
+
+    public GameObject WinUI;
+    public GameObject LoseUI;
+
+    public Building BuildingLeft;
+    public Building BuildingRight;
+
     //싱글톤 디자인 패턴 선언
     public static GameManager instance = null;
 
@@ -72,6 +77,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void BuildingDestroyed(Team buildingOwner)
+    {
+
+        //승리 UI 표시
+        if (buildingOwner == Team.left)
+        {
+            BroadcastMessage("GameEnded");
+            LoseUI.SetActive(true);
+        }
+        else WinUI.SetActive(true);
+        BroadcastMessage("GameEnded");
         
     }
 }

@@ -10,4 +10,5 @@ public class WarriorInfo : ScriptableObject
     public float speed;
     public float spawnTick;
     public int id;
+    public int deadEXP;
 }
